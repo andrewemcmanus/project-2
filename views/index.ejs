@@ -1,1 +1,12 @@
 <h2>Homepage</h2>
+
+<audio controls>
+        <source src="<%=result.preview_url%>" />
+        </audio>
+        <div class="faves">
+          <form method="POST" action="/track">
+            <input hidden type="text" name="name" value="<%= result.name %>">
+            <input type="text" name="trackId" value="<%= result.id %>" hidden>
+            <button class="btn btn-primary" type="submit">Add to Favorites</button>
+          </form>
+        </div>
