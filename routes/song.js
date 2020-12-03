@@ -34,9 +34,36 @@ router.get('/', (req, res) => {
       });
       // console.log(config);
     })
-
     // let artist = req.query.artist;
-
 })
+
+// router.post('/', (req, res) => {
+//     // console.log(req.body)
+//     // console.log(req.body.id)
+//     // console.log(req.body.title)
+//     // console.log(req.body.artist)
+//     // console.log(req.body.durationMs)
+//     // console.log(req.body.preview_url)
+//     db.track.findOrCreate({
+//         where: { spotify_id: req.body.id },
+//         defaults: {
+//             title: req.body.title,
+//             artist: req.body.artist,
+//             durationMs: req.body.durationMs,
+//             explicit: req.body.explicit,
+//             preview_url: req.body.preview_url
+//         }
+//     })
+//     .then((req, res) => {
+//         console.log(`console req ${req}`);
+//         console.log(`console res ${res}`);
+//     })
+//     .then(() => {
+//         res.redirect('/user')
+//     })
+// .catch((err) => {
+//     console.log(err)
+// })
+// });
 
 module.exports = router;
