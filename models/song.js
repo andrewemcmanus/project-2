@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   song.init({
     title: DataTypes.STRING,
     artist: DataTypes.STRING
+    // need preview_url
   }, {
     sequelize,
     modelName: 'song',

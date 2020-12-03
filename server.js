@@ -8,7 +8,7 @@ const passport = require('./config/ppConfig');
 const flash = require('connect-flash');
 // const methodOverride = require('method-override');
 
-require('./utilities/spotifyApi');
+// require('./utilities/spotifyApi');
 //require the authorizarization middleware at the top of the page
 // add the isLoggedIn middleware here:
 const isLoggedIn = require('./middleware/isLoggedIn');
@@ -56,7 +56,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 app.use('/auth', require('./routes/auth'));
-// app.use('/track', isLoggedIn, require('./routes/track'));//mounting
+app.use('/song', isLoggedIn, require('./routes/song'));//mounting
 // app.use('/comment', isLoggedIn, require('./routes/comment'))
 app.use('/profile', isLoggedIn, require('./routes/user'))
 
