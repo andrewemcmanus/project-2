@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const request = require('request');
-const db = require('./models');
-const passport = require('./config/ppConfig');
+const db = require('../models');
+const passport = require('../config/ppConfig');
 const axios = require('axios')
 const querystring = require('querystring');
 const { response } = require('express');
@@ -72,26 +72,26 @@ router.get('/:id', (req, res)=>{
         }
         let trackId = req.params.id
         // console.log('line 68', trackId)
-        try{
-
-            axios.get(`https://api.spotify.com/v1/tracks/${trackId}`, config)
-                .then((response)=> {
-            console.log('line 71', response.data.album.images[0])
-            let result = response.data
-                console.log(result)
-            db.comment.findAll({
-                where: {apiTrackId: req.params.id}//line 74
-            }).then((comments)=>{
-                res.render('trackDetails', {comments, result})//render found comments db query and result
-            })
-
-
-            }).catch(err=>{
-                // console.log('error', err)
-            })
-        }catch{
-            console.log('this')
-        }
+        // try{
+        //
+        //     axios.get(`https://api.spotify.com/v1/tracks/${trackId}`, config)
+        //         .then((response)=> {
+        //     console.log('line 71', response.data.album.images[0])
+        //     let result = response.data
+        //         console.log(result)
+        //     db.comment.findAll({
+        //         where: {apiTrackId: req.params.id}//line 74
+        //     }).then((comments)=>{
+        //         res.render('trackDetails', {comments, result})//render found comments db query and result
+        //     })
+        //
+        //
+        //     }).catch(err=>{
+        //         // console.log('error', err)
+        //     })
+        // }catch{
+        //     console.log('this')
+        // }
     })
 })
 
@@ -139,7 +139,5 @@ router.delete('/:id', async(req, res)=>{
   }
 
   });
-
-
 
 module.exports =router;

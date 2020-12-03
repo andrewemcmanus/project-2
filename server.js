@@ -1,14 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const layouts = require('express-ejs-layouts');
+const app = express();
 const session = require('express-session');
+const SECRET_SESSION = process.env.CLIENT_SECRET;
 const passport = require('./config/ppConfig');
 const flash = require('connect-flash');
-const SECRET_SESSION = process.env.SECRET_SESSION;
-// import AudioMotionAnalyzer from './audiomotion-analyzer.js';
+// const methodOverride = require('method-override');
 
-// console.log(SECRET_SESSION);
-const app = express();
+require('./utilities/spotifyApi');
+//require the authorizarization middleware at the top of the page
 // add the isLoggedIn middleware here:
 const isLoggedIn = require('./middleware/isLoggedIn');
 
@@ -55,8 +56,9 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 app.use('/auth', require('./routes/auth'));
-
-
+// app.use('/track', isLoggedIn, require('./routes/track'));//mounting
+// app.use('/comment', isLoggedIn, require('./routes/comment'))
+app.use('/profile', isLoggedIn, require('./routes/user'))
 
 
 const PORT = process.env.PORT || 3000;
