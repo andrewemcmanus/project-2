@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  console.log(res.locals.alerts);
+  // console.log(res.locals.alerts);
   res.render('index', { alerts: res.locals.alerts });
 });
 

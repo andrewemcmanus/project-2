@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
           Authorization: `Bearer ${token}`
         }
       };
-      let title = req.params.title;
+      let title = req.params.tracks;
       let query = encodeURIComponent(`${title}`); // ${artist}
       axios.get(`https://api.spotify.com/v1/search?q=${query}&type=artist,track&offset=0&limit=20`, config).then((response) => {
         let tracks = response.data.tracks.items;
