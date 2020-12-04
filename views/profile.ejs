@@ -4,6 +4,16 @@
 
 <h3>your favorites:</h3>
 
+<script type="module">
+  import AudioMotionAnalyzer from 'https://cdn.skypack.dev/audiomotion-analyzer?min';
+  const audioMotion = new AudioMotionAnalyzer(
+    document.getElementById('container'),
+    {
+        source: document.getElementById('audio')
+    }
+);
+  // your code here
+</script>
 <div id="container" class="fluid"></div>
 <audio id="audio" controls crossorigin="anonymous"></audio>
 <!-- form to add genre description -->

@@ -60,7 +60,6 @@ app.use('/song', isLoggedIn, require('./routes/song'));//mounting
 // app.use('/comment', isLoggedIn, require('./routes/comment'))
 app.use('/profile', isLoggedIn, require('./routes/user'))
 
-
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
