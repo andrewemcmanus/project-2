@@ -9,28 +9,3 @@
   <input type="text" name="artist" placeholder="search artists">
   <input type="submit" />
 </form>
-
-<% const msToMinutesSeconds = (ms) => { %>
-<%   let minutes = Math.floor(ms / 60000 ); %>
-<%   let seconds = ((ms % 60000) / 1000).toFixed(0); %>
-<%   return `${minutes}:${seconds < 10 ? '0' : ''}` + seconds; %>
-<% } %>
-
-<% if (tracks) { %> <% tracks.forEach(track => { %>
-        <h4>Name: <%= track.name %></h4>
-        <h4>Artist: <%= track.album.artists[0].name %></h4>
-        <h4>Length: <%= msToMinutesSeconds(track.duration_ms) %></h4>
-        <h4>Preview: <%= track.preview_url %> </h4>
-        <form method="POST" action="/user"> <!--Action = Route -->
-          <input hidden type="text" name="id" value="<%= track.id %>">
-          <input hidden type="text" name="title" value="<%= track.name %>">
-          <input hidden type="text" name="artist" value="<%= track.album.artists[0].name %>">
-
-          <input hidden type="text" name="preview_url" value="<%= track.preview_url %>">
-
-          <button class="btn btn-primary" type="submit">Add to Favorite Songs</button>
-        </form>
-    <% }) %>
-<% } else {%>
-<h4>No Results Matching Your Search</h4>
-<% } %>

@@ -33,8 +33,8 @@ router.get('/profile', (req, res) => {
             }
         })
     })
-    .then((faves) => {
-        res.render('favorites', { faves, tracks: [] })
+    .then((favorites) => {
+        res.render('profile', { favorites, tracks: [] })
     })
 })
 
@@ -67,8 +67,8 @@ router.get("/:track", (req, res) => {
         )
         .then((response) => {
           let tracks = response.data.tracks.items;
-          console.log(tracks[0].artists[0].name);
-          res.render('user', { tracks });
+          // console.log(tracks[0].artists[0].name);
+          res.render('trackResults', { tracks });
         })
         .catch((err) => {
           console.log(err);
