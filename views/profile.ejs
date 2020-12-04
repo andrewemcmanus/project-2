@@ -14,7 +14,7 @@
 </header>
 
 <div id="container"></div>
-<audio id="audio" src="" autoplay controls crossorigin="anonymous"></audio>
+<audio id="audio" src="https://p.scdn.co/mp3-preview/df0231d07c53464b9e91196fe4feb4c239c9fdf1?cid=5f38a0d37ed8401f9d88b8c004dfa457" controls crossorigin="anonymous"></audio>
 
 <div class="box center">
   <button id="btn_fullscreen">Fullscreen</button>
@@ -28,6 +28,7 @@
 <script type="module">
   import AudioMotionAnalyzer from 'https://cdn.skypack.dev/audiomotion-analyzer?min';
 
+
   try {
     var audioMotion = new AudioMotionAnalyzer(
       document.getElementById('container'),
@@ -37,6 +38,7 @@
       }
     );
   }
+
   catch( err ) {
     document.getElementById('container').innerHTML = `<p>audioMotion-analyzer failed with error: <em>${err}</em></p>`;
   }

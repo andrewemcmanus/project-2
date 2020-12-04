@@ -5,6 +5,7 @@ const app = express();
 const session = require('express-session');
 const SECRET_SESSION = process.env.CLIENT_SECRET;
 const passport = require('./config/ppConfig');
+const cookieSession = require('cookie-session');
 const flash = require('connect-flash');
 // const methodOverride = require('method-override');
 
@@ -16,6 +17,7 @@ const isLoggedIn = require('./middleware/isLoggedIn');
 app.set('view engine', 'ejs');
 
 app.use(require('morgan')('dev'));
+app.use(cookieSession({ maxAge: 2592000000, keys: [process.env.COOKIE_KEY] }))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
@@ -55,8 +57,13 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
 
+app.get('/user', isLoggedIn, (req, res) => {
+  res.render('user');
+})
+
 app.use('/auth', require('./routes/auth'));
-app.use('/song', isLoggedIn, require('./routes/song'));//mounting
+// app.use('/song', isLoggedIn, require('./routes/user'));//mounting
+app.use('/user', isLoggedIn, require('./routes/user'));
 // app.use('/comment', isLoggedIn, require('./routes/comment'))
 app.use('/profile', isLoggedIn, require('./routes/user'))
 
