@@ -13,11 +13,11 @@ const { response } = require('express')
 let router = express.Router()
 
 // router.post('/:id', (req, res)=>{
-//     db.comment.create({
-//         name: req.body.name,
+//     db.genre.create({
 //         content: req.body.content,
 //         userId: req.user.id,
-//         apiTrackId: req.params.id
+//         songId: req.params.id
+// or something else?
 //
 //     })//create a comment to the body
 //     .then(addComment => {
@@ -31,13 +31,11 @@ let router = express.Router()
 // })
 //
 // router.put("/:id", (req, res)=>{
-//     db.comment.update({// what do you want to update when you update? which columns
-//         name: req.body.name,
+//     db.comment.update({//
 //         content: req.body.content,
 //         apiTrackId: req.params.id
 //     },{
-//
-//         where:{id: req.body.id}//open
+//         where:{id: req.body.id}
 //     }).then(response=>{
 //         // console.log(response)
 //         console.log("put route for comment", req.params)
@@ -61,6 +59,7 @@ let router = express.Router()
 //       });
 //
 // })
+// search for and delete comments with the same genre (or similar?)
 
 
 module.exports =router;

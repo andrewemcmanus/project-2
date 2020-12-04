@@ -1,0 +1,13 @@
+<% if (tracks) { %>
+    <% tracks.forEach(track =>{ %>
+        <div>
+            <Ul>
+                <Li>
+                    <a href="/track/<%=track.id%>"><h2><%= track.name %></h2></a>
+                </Li>
+            </Ul>
+        </div>
+    <% }); %>
+<% } else { %>
+    <div>track not found</div>
+<% } %>
